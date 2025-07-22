@@ -1,0 +1,53 @@
+{
+  "name": "context-engine-mcp",
+  "version": "1.0.0",
+  "description": "A TypeScript MCP (Model Context Protocol) server providing context analysis and code intelligence tools",
+  "keywords": [
+    "mcp",
+    "typescript",
+    "context",
+    "ai",
+    "tools"
+  ],
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "dist/context-engine.js",
+  "types": "dist/context-engine.d.ts",
+  "bin": {
+    "context-engine-mcp": "dist/context-engine.js"
+  },
+  "files": [
+    "dist/**/*",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "dev": "tsx src/index.ts",
+    "start": "node dist/context-engine.js",
+    "clean": "rimraf dist",
+    "prebuild": "npm run clean",
+    "typecheck": "tsc --noEmit",
+    "lint": "echo \"Add ESLint configuration if needed\"",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "npm run build"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.57.0",
+    "@modelcontextprotocol/sdk": "^1.16.0",
+    "dotenv": "^17.2.0",
+    "glob": "^10.3.10",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/glob": "^8.1.0",
+    "@types/node": "^24.1.0",
+    "rimraf": "^6.0.1",
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3"
+  }
+}

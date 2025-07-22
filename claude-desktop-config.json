@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "context-engine": {
+      "command": "node",
+      "args": ["D:/mcp-servers/dist/index.js"],
+      "cwd": "D:/mcp-servers"
+    }
+  }
+}
