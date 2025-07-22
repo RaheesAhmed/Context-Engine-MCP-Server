@@ -355,7 +355,7 @@ Contributions welcome! Focus areas:
 
 ## 📄 License
 
-MIT
+[MIT](./LICENSE)
 
 ---
 
