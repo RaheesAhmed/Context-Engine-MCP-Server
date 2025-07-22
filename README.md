@@ -1,4 +1,4 @@
-# Context Engine MCP Server & Client
+# Context Engine MCP Server (Beta)
 
 A production-ready Model Context Protocol (MCP) server with advanced multi-language code analysis capabilities. This MCP server provides comprehensive project analysis through real code parsing, AST-level component extraction, and intelligent context generation for AI coding assistants.
 
