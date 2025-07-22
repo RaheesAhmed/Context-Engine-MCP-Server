@@ -62,8 +62,8 @@ Maps **real code relationships**:
 
 ```bash
 # Clone and install
-git clone <repository-url>
-cd mcp-servers
+git clone https://github.com/RaheesAhmed/Context-Engine-MCP-Server.git
+cd Context-Engine-MCP-Server
 npm install
 npm run build
 ```
