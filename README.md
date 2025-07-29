@@ -40,8 +40,8 @@ npm install -g context-engine-mcp-server
 ### From Source
 
 ```bash
-git clone https://github.com/raheesahmed/context-engine-mcp.git
-cd context-engine-mcp
+git clone https://github.com/RaheesAhmed/Context-Engine-MCP-Server.git
+cd Context-Engine-MCP-Server
 npm install
 npm run build
 npm link
@@ -50,8 +50,8 @@ npm link
 ### Development Setup
 
 ```bash
-git clone https://github.com/raheesahmed/context-engine-mcp.git
-cd context-engine-mcp
+git clone https://github.com/RaheesAhmed/Context-Engine-MCP-Server.git
+cd Context-Engine-MCP-Server
 npm install
 npm run dev
 ```
@@ -60,17 +60,75 @@ npm run dev
 
 ### 1. Configure MCP Client
 
+#### For Claude Desktop
+
+Add to your `claude_desktop_config.json`:
+
+**macOS/Linux:**
+
+```bash
+code ~/Library/Application\ Support/Claude/claude_desktop_config.json
+```
+
+**Windows:**
+
+```bash
+code %APPDATA%\Claude\claude_desktop_config.json
+```
+
+**Configuration:**
+
+```json
+{
+  "mcpServers": {
+    "context-engine": {
+      "command": "node",
+      "args": ["/absolute/path/to/context-engine/dist/index.js"]
+    }
+  }
+}
+```
+
+**Example for typical installation:**
+
+```json
+{
+  "mcpServers": {
+    "context-engine": {
+      "command": "node",
+      "args": ["d:/mcp-servers/context-engine/dist/index.js"]
+    }
+  }
+}
+```
+
+#### For Other MCP Clients
+
 Add to your MCP client configuration:
 
 ```json
 {
   "mcpServers": {
     "context-engine": {
-      "command": "context-engine-mcp",
-      "args": []
+      "command": "node",
+      "args": ["/absolute/path/to/context-engine/dist/index.js"]
     }
   }
 }
+```
+
+**Note:** Use the full absolute path to your `dist/index.js` file. If you've installed globally with `npm install -g .`, you can use `"command": "context-engine-mcp"` with `"args": []` instead.
+
+#### Verify Installation
+
+Test the server is working correctly:
+
+```bash
+# Test basic functionality
+context-engine-mcp --help
+
+# Or run directly
+node ./dist/index.js
 ```
 
 ### 2. Basic Usage
