@@ -1,53 +1,79 @@
 {
-  "name": "context-engine-mcp",
-  "version": "1.0.0",
-  "description": "A TypeScript MCP (Model Context Protocol) server providing context analysis and code intelligence tools",
-  "keywords": [
-    "mcp",
-    "typescript",
-    "context",
-    "ai",
-    "tools"
-  ],
-  "license": "ISC",
-  "author": "",
+  "name": "context-engine-mcp-server",
+  "version": "2.0.0",
+  "description": "Production-ready TypeScript context engine MCP server for comprehensive project analysis and multi-file editing",
+  "main": "dist/index.js",
   "type": "module",
-  "main": "dist/context-engine.js",
-  "types": "dist/context-engine.d.ts",
   "bin": {
-    "context-engine-mcp": "dist/context-engine.js"
-  },
-  "files": [
-    "dist/**/*",
-    "README.md"
-  ],
-  "engines": {
-    "node": ">=18.0.0"
+    "context-engine-mcp": "./dist/index.js"
   },
   "scripts": {
     "build": "tsc",
     "build:watch": "tsc --watch",
-    "dev": "tsx src/index.ts",
-    "start": "node dist/context-engine.js",
+    "dev": "tsx --watch src/index.ts",
+    "start": "node dist/index.js",
     "clean": "rimraf dist",
     "prebuild": "npm run clean",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "lint": "eslint src --ext .ts",
+    "lint:fix": "eslint src --ext .ts --fix",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "format:check": "prettier --check \"src/**/*.ts\"",
     "typecheck": "tsc --noEmit",
-    "lint": "echo \"Add ESLint configuration if needed\"",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "prepare": "npm run build"
+    "prepare": "npm run build",
+    "install-global": "npm run build && npm install -g .",
+    "link": "npm run build && npm link"
   },
+  "keywords": [
+    "mcp",
+    "context",
+    "analysis",
+    "multi-file",
+    "editing",
+    "ai",
+    "llm",
+    "development",
+    "typescript",
+    "production"
+  ],
+  "author": "Rahees Ahmed",
+  "license": "MIT",
   "dependencies": {
-    "@anthropic-ai/sdk": "^0.57.0",
-    "@modelcontextprotocol/sdk": "^1.16.0",
-    "dotenv": "^17.2.0",
+    "@modelcontextprotocol/sdk": "^1.17.0",
     "glob": "^10.3.10",
-    "zod": "^3.25.76"
+    "winston": "^3.11.0",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
-    "@types/glob": "^8.1.0",
-    "@types/node": "^24.1.0",
-    "rimraf": "^6.0.1",
-    "tsx": "^4.20.3",
-    "typescript": "^5.8.3"
-  }
+    "@types/node": "^20.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
+    "@vitest/coverage-v8": "^1.1.0",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "prettier": "^3.2.4",
+    "rimraf": "^5.0.5",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3",
+    "vitest": "^1.1.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "files": [
+    "dist/**/*",
+    "README.md",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raheesahmed/context-engine-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/raheesahmed/context-engine-mcp/issues"
+  },
+  "homepage": "https://github.com/raheesahmed/context-engine-mcp#readme"
 }

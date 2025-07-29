@@ -1,373 +1,434 @@
-# Context Engine MCP Server (Beta)
+# Context Engine MCP Server v2.0
 
-A production-ready Model Context Protocol (MCP) server with advanced multi-language code analysis capabilities. This MCP server provides comprehensive project analysis through real code parsing, AST-level component extraction, and intelligent context generation for AI coding assistants.
+A **production-ready TypeScript MCP server** that provides comprehensive project analysis, intelligent code search, dependency tracking, and coordinated multi-file editing capabilities.
 
-## 🌟 Core Capabilities
+## 🚀 Features
 
-- **Advanced MCP Server**: Full JSON-RPC protocol implementation with STDIO communication
-- **Multi-Language Code Parsing**: Real AST-level analysis for 15+ programming languages
-- **Smart API Discovery**: Parses actual framework routes and endpoints from code
-- **Business Logic Extraction**: Identifies real domain models, services, and business rules
-- **Data Flow Analysis**: Maps actual dependencies, function calls, and data transfers
-- **AI-Ready Context**: Generates compressed, intelligent context templates for LLMs
+### Core Capabilities
 
-## 🚀 Real Code Analysis Features
+- **🔍 Intelligent Project Analysis**: Deep code structure analysis with dependency tracking
+- **📊 Multi-Language Support**: JavaScript, TypeScript, Python, Java, C#, C++, and more
+- **⚡ Smart Caching**: LRU cache with automatic cleanup and memory management
+- **🔒 Security First**: Input validation, path traversal protection, and error handling
+- **📝 Multi-File Editing**: Coordinated file operations with automatic backups
+- **🔗 Dependency Mapping**: Comprehensive file relationship analysis
+- **📈 Project Statistics**: Code health metrics and performance insights
 
-### API Contract Analyzer
+### Advanced Features
 
-Parses **actual API routes** from popular frameworks:
+- **Intelligent Search**: Regex-based search with code structure awareness
+- **Framework Detection**: Automatic detection of React, Vue, Django, Express, etc.
+- **Backup System**: Automatic file backups before modifications
+- **Performance Monitoring**: Built-in logging and performance tracking
+- **Memory Management**: Configurable limits and automatic cleanup
+- **Error Recovery**: Comprehensive error handling with rollback capabilities
 
-- **Express.js**: `app.get('/users/:id', handler)` → `GET /users/:id`
-- **FastAPI**: `@app.get("/users/{id}")` → `GET /users/{id}`
-- **Spring Boot**: `@GetMapping("/users/{id}")` → `GET /users/{id}`
-- **ASP.NET**: `[HttpGet("/users/{id}")]` → `GET /users/{id}`
-- **Django**: `path('users/<int:id>/', view)` → `GET /users/<int:id>/`
-- **Flask**: `@app.route('/users/<id>', methods=['GET'])` → `GET /users/<id>`
+## 📋 Requirements
 
-### Business Logic Analyzer
+- **Node.js**: 18.0.0 or higher
+- **TypeScript**: 5.3.3 or higher
+- **Memory**: Recommended 512MB+ for large projects
 
-Extracts **real business concepts** from code:
+## 🛠 Installation
 
-- **Domain Detection**: Identifies e-commerce, finance, healthcare, etc. from actual code terms
-- **Entity Extraction**: Parses TypeScript interfaces, Python @dataclass, Java @Entity, C# DbContext
-- **Business Rules**: Detects validation patterns, workflows, calculations, authorization logic
-- **Service Identification**: Finds actual service classes and dependency injection patterns
-
-### Code Relation Analyzer
-
-**Full AST-level parsing** for comprehensive component extraction:
-
-- **TypeScript/JavaScript**: Classes, functions, interfaces, arrow functions, type aliases
-- **Python**: Classes, functions, dataclasses, Pydantic models, async functions
-- **Java**: Classes, interfaces, enums, JPA entities, Spring annotations
-- **Rust**: Structs, enums, traits, functions, async functions, generics
-- **Go**: Structs, interfaces, functions, methods
-- **C#**: Classes, interfaces, structs, DbContext, attributes
-- **PHP**: Classes, functions, Laravel patterns
-- **Ruby**: Classes, modules, methods, Rails patterns
-- **C/C++**: Classes, structs, functions, templates
-
-### Data Flow Analyzer
-
-Maps **real code relationships**:
-
-- **Node Type Detection**: Database (SQL patterns), API (HTTP frameworks), Storage (file I/O)
-- **Dependency Tracking**: Import/require statements, module dependencies
-- **Function Call Mapping**: Method invocations, cross-module calls
-- **Data Operations**: Database queries, HTTP requests, file operations, transformations
-
-## 🔧 Quick Start
-
-### Installation
+### From NPM (Recommended)
 
 ```bash
-# Clone and install
-git clone https://github.com/RaheesAhmed/Context-Engine-MCP-Server.git
-cd Context-Engine-MCP-Server
+npm install -g context-engine-mcp-server
+```
+
+### From Source
+
+```bash
+git clone https://github.com/raheesahmed/context-engine-mcp.git
+cd context-engine-mcp
 npm install
 npm run build
+npm link
 ```
 
-### MCP Client Commands
+### Development Setup
 
 ```bash
-# Full demonstration of all features
-node mcp-client.js demo
-
-# Get project summary
-node mcp-client.js summary [path]
-
-# Complete project analysis
-node mcp-client.js analyze [path]
-
-# Generate AI context template
-node mcp-client.js template [path]
-
-# Analyze specific file
-node mcp-client.js analyze-file <file-path>
-
-# List all available tools
-node mcp-client.js list-tools
+git clone https://github.com/raheesahmed/context-engine-mcp.git
+cd context-engine-mcp
+npm install
+npm run dev
 ```
 
-### Example Output
+## 🏃 Quick Start
 
-```bash
-📈 PROJECT SUMMARY
-========================================
-📁 Files: 156
-📂 Directories: 12
-💻 Languages: TypeScript, Python, JavaScript
-🔗 Components: 47 (real components extracted!)
-🌐 API Endpoints: 12 (actual routes found!)
-🔄 Data Flow Nodes: 47
-⚡ Data Flow Connections: 105
-========================================
-```
+### 1. Configure MCP Client
 
-## 🛠️ Available MCP Tools
-
-### 1. `analyze_project`
-
-Complete multi-language project analysis with real code parsing.
-
-**Parameters:**
-
-- `projectPath` (string, required): Path to project directory
-- `options` (object, optional):
-  - `maxDepth` (number): Directory traversal depth (default: 10)
-  - `analyzeTests` (boolean): Include test files (default: true)
-  - `analyzeConfig` (boolean): Include config files (default: true)
-
-### 2. `get_context_template`
-
-Generate compressed, AI-ready context with real insights.
-
-**Parameters:**
-
-- `projectPath` (string, required): Path to project directory
-- `templateOptions` (object, optional):
-  - `targetSize` (number): Target context size in characters
-  - `includeCode` (boolean): Include code snippets
-  - `focusAreas` (array): Focus areas like ["api", "business-logic", "data-flow"]
-
-### 3. `analyze_file`
-
-Deep analysis of individual files with real component extraction.
-
-**Parameters:**
-
-- `filePath` (string, required): Path to the file
-- `analysisType` (enum, optional): "dependencies", "components", "dataflow", "all"
-
-### 4. `get_project_summary`
-
-High-level project overview with real metrics.
-
-**Parameters:**
-
-- `projectPath` (string, required): Path to project directory
-
-## 🌍 Multi-Language Support
-
-### Production-Ready Parsing (15+ Languages)
-
-| Category         | Languages                           | Parsing Level         |
-| ---------------- | ----------------------------------- | --------------------- |
-| **Web**          | TypeScript, JavaScript, React, Vue  | **Full AST**          |
-| **Backend**      | Node.js, Python, Go, Rust, Java, C# | **Full AST**          |
-| **Mobile**       | Swift, Kotlin, Java, Dart           | **Full AST**          |
-| **Systems**      | C, C++, Rust, Go                    | **Full AST**          |
-| **Data Science** | Python, R, Julia                    | **Semantic Parsing**  |
-| **Functional**   | Haskell, F#, Clojure, Elixir        | **Pattern Detection** |
-
-### Framework & API Detection
-
-- **JavaScript/Node.js**: Express, Fastify, Next.js API routes, React components
-- **Python**: Django, Flask, FastAPI, Pydantic models, dataclasses
-- **Java**: Spring Boot, JAX-RS, JPA entities, Hibernate
-- **C#/.NET**: ASP.NET Core, Entity Framework, WebAPI
-- **Rust**: Actix-web, Warp, Serde models, async functions
-- **Go**: Gin, Echo, Gorilla Mux, struct definitions
-- **PHP**: Laravel, Symfony, Eloquent models
-- **Ruby**: Rails, Sinatra, ActiveRecord models
-
-## 📊 Real Analysis Results
-
-### API Endpoint Discovery
-
-```json
-{
-  "method": "GET",
-  "path": "/api/users/:id",
-  "handler": "UserController",
-  "file": "./src/controllers/UserController.ts"
-}
-```
-
-### Business Entity Extraction
-
-```json
-{
-  "entities": ["User", "Product", "Order", "Payment"],
-  "domain": "e-commerce",
-  "services": ["UserService", "OrderService", "PaymentProcessor"]
-}
-```
-
-### Component Analysis
-
-```json
-{
-  "components": [
-    {
-      "name": "UserController",
-      "type": "class",
-      "language": "TypeScript",
-      "async": false,
-      "exported": true
-    }
-  ]
-}
-```
-
-## 💻 Integration Examples
-
-### Claude Desktop Integration
-
-Add to your Claude Desktop MCP configuration:
+Add to your MCP client configuration:
 
 ```json
 {
   "mcpServers": {
     "context-engine": {
-      "command": "node",
-      "args": ["/path/to/mcp-servers/dist/index.js"],
-      "cwd": "/path/to/mcp-servers"
+      "command": "context-engine-mcp",
+      "args": []
     }
   }
 }
 ```
 
-### Direct MCP Server Usage
+### 2. Basic Usage
+
+#### Analyze a Project
 
 ```bash
-# Start MCP server directly
-node dist/index.js
-
-# Send JSON-RPC requests via stdin
-echo '{"jsonrpc":"2.0","id":1,"method":"tools/list","params":{}}' | node dist/index.js
+# Analyze project structure and dependencies
+analyze_project {
+  "projectPath": "/path/to/your/project",
+  "forceRefresh": false
+}
 ```
 
-## 🏗️ Project Architecture
-
-```
-mcp-servers/
-├── 📁 src/
-│   ├── index.ts                      # Main MCP server
-│   └── 📁 context-engine/           # Advanced analysis engine
-│       ├── ProjectContextAnalyzer.ts  # Orchestrates all analysis
-│       ├── types.ts                   # TypeScript definitions
-│       ├── index.ts                   # Engine exports
-│       ├── 📁 analyzers/             # Core analyzers (REAL parsing)
-│       │   ├── FileStructureAnalyzer.ts    # Multi-language file detection
-│       │   ├── CodeRelationAnalyzer.ts     # AST-level component extraction
-│       │   ├── DataFlowAnalyzer.ts         # Real dependency mapping
-│       │   ├── APIContractAnalyzer.ts      # Framework route parsing
-│       │   └── BusinessLogicAnalyzer.ts    # Domain model extraction
-│       └── 📁 compressors/           # Context optimization
-│           ├── SemanticCompressor.ts       # Intelligent relationship networks
-│           ├── DependencyGraphCompressor.ts # Dependency optimization
-│           ├── PatternRecognizer.ts        # Architecture pattern detection
-│           └── ContextTemplater.ts         # Multi-format report generation
-├── mcp-client.js                     # Feature-rich MCP client
-├── package.json                      # Dependencies & scripts
-└── README.md                         # This file
-```
-
-## 🎯 Production-Ready Features
-
-### ✅ **Fully Implemented (Production-Ready)**
-
-- **Real Code Parsing**: Full AST analysis with regex patterns for comprehensive extraction
-- **Multi-Framework API Detection**: Express, FastAPI, Spring Boot, ASP.NET, Django, Flask
-- **Business Logic Recognition**: Domain extraction, entity parsing, business rule detection
-- **Cross-Language Component Analysis**: Classes, functions, interfaces for 15+ languages
-- **Data Flow Mapping**: Real dependency tracking, function call analysis
-- **MCP Protocol**: Complete JSON-RPC server/client implementation
-- **Context Optimization**: Intelligent compression and template generation
-
-### 🚀 **Key Differentiators**
-
-- **Framework-Aware**: Understands Express routes, Spring annotations, FastAPI decorators
-- **Language-Specific**: Tailored parsing for TypeScript interfaces, Python dataclasses, Java entities
-- **Business-Focused**: Extracts actual domain concepts, not just technical structures
-- **AI-Optimized**: Generates context specifically designed for LLM consumption
-- **Relationship-Aware**: Maps real code dependencies and data flows
-
-## 📈 Benchmark Results
-
-Tested on real-world projects:
-
-```
-🔬 Analysis Performance
-========================================
-📊 Large TypeScript Project (500+ files):
-   - Components Extracted: 1,247
-   - API Endpoints Found: 89
-   - Processing Time: 3.2s
-   - Accuracy: 94.3%
-
-📊 Python Django Project (300+ files):
-   - Models Detected: 23
-   - Views Mapped: 67
-   - Business Rules: 156
-   - Processing Time: 1.8s
-
-📊 Java Spring Boot Project (400+ files):
-   - Services Found: 34
-   - Entities Parsed: 28
-   - Controllers: 41
-   - Processing Time: 2.1s
-========================================
-```
-
-## 🧪 Testing & Validation
+#### Search Code
 
 ```bash
-# Build and test
-npm run build
+# Intelligent search across all files
+search_project {
+  "projectPath": "/path/to/your/project",
+  "query": "function handleSubmit",
+  "caseSensitive": false,
+  "includeStructure": true
+}
+```
+
+#### Edit Multiple Files
+
+```bash
+# Coordinated multi-file editing with backups
+edit_multiple_files {
+  "projectPath": "/path/to/your/project",
+  "changes": [
+    {
+      "filePath": "src/components/Header.tsx",
+      "action": "update",
+      "content": "// Updated header component..."
+    },
+    {
+      "filePath": "src/styles/header.css",
+      "action": "create",
+      "content": ".header { color: blue; }"
+    }
+  ]
+}
+```
+
+## 🔧 Configuration
+
+### Environment Variables
+
+```bash
+# Logging level (debug, info, warn, error)
+LOG_LEVEL=info
+
+# Maximum file size in bytes (default: 10MB)
+MAX_FILE_SIZE=10485760
+
+# Cache cleanup interval in ms (default: 5 minutes)
+CACHE_CLEANUP_INTERVAL=300000
+
+# Maximum cache entries (default: 1000)
+MAX_CACHE_SIZE=1000
+```
+
+### Programmatic Configuration
+
+```typescript
+import { configManager } from 'context-engine-mcp-server/config';
+
+configManager.update({
+  maxFileSize: 20 * 1024 * 1024, // 20MB
+  logLevel: 'debug',
+  maxCacheSize: 2000,
+});
+```
+
+## 📚 Available Tools
+
+### `analyze_project`
+
+Comprehensively analyze project structure and dependencies.
+
+**Parameters:**
+
+- `projectPath` (string, required): Path to project directory
+- `forceRefresh` (boolean, optional): Bypass cache and force fresh analysis
+
+**Returns:** Complete project context with file analysis, dependencies, and metadata.
+
+### `search_project`
+
+Intelligent search across project files with structure awareness.
+
+**Parameters:**
+
+- `projectPath` (string, required): Path to analyzed project
+- `query` (string, required): Search query (supports regex)
+- `caseSensitive` (boolean, optional): Case-sensitive search
+- `includeStructure` (boolean, optional): Include functions/classes in search
+- `filePatterns` (string[], optional): Filter files by patterns
+- `maxResults` (number, optional): Maximum results to return
+
+**Returns:** Search results with file locations and context.
+
+### `edit_multiple_files`
+
+Edit multiple files simultaneously with coordinated changes.
+
+**Parameters:**
+
+- `projectPath` (string, required): Path to project directory
+- `changes` (FileChange[], required): Array of file operations
+
+**FileChange Object:**
+
+- `filePath` (string): Relative path within project
+- `action` ('create' | 'update' | 'delete'): Operation type
+- `content` (string, optional): File content for create/update
+- `backup` (boolean, optional): Create backup (default: true)
+
+**Returns:** Results of each file operation with success/error status.
+
+### `get_file_relationships`
+
+Analyze file dependencies and relationships.
+
+**Parameters:**
+
+- `projectPath` (string, required): Path to analyzed project
+- `filePath` (string, optional): Specific file to analyze
+
+**Returns:** Dependency mapping showing imports and dependents.
+
+### `get_project_stats`
+
+Generate comprehensive project statistics and health metrics.
+
+**Parameters:**
+
+- `projectPath` (string, required): Path to analyzed project
+
+**Returns:** Detailed statistics including code health, dependencies, and performance metrics.
+
+### `get_project_context`
+
+Retrieve cached project context without re-analysis.
+
+**Parameters:**
+
+- `projectPath` (string, required): Path to previously analyzed project
+
+**Returns:** Cached project context and metadata.
+
+### `clear_cache`
+
+Clear all cached data and force fresh analysis.
+
+**Parameters:** None
+
+**Returns:** Confirmation of cache clearing.
+
+## 🏗 Architecture
+
+### Core Components
+
+```
+src/
+├── config/           # Configuration management
+├── services/         # Core business logic
+│   ├── context-engine.ts    # Main orchestration service
+│   ├── file-manager.ts      # File operations & validation
+│   ├── language-analyzer.ts # Code parsing & analysis
+│   └── cache-manager.ts     # Intelligent caching system
+├── utils/           # Utility functions
+│   ├── errors.ts          # Error handling & types
+│   ├── validation.ts      # Input validation & security
+│   └── logger.ts          # Structured logging
+├── types/           # TypeScript type definitions
+└── index.ts         # MCP server entry point
+```
+
+### Key Design Patterns
+
+- **Singleton Pattern**: Ensures single instances of core services
+- **Factory Pattern**: Creates configured service instances
+- **Observer Pattern**: Cache cleanup and memory management
+- **Strategy Pattern**: Language-specific analysis strategies
+- **Command Pattern**: File operation coordination
+
+## 🧪 Testing
+
+### Run Tests
+
+```bash
+# Run all tests
 npm test
 
-# Live testing with demo project
-node mcp-client.js demo
+# Run tests in watch mode
+npm run test:watch
 
-# Test specific analyzers
-node mcp-client.js analyze-file ./examples/UserController.ts
-node mcp-client.js summary ./examples/ecommerce-app
+# Generate coverage report
+npm run test:coverage
+
+# Run linting
+npm run lint
+
+# Format code
+npm run format
 ```
 
-## 🔧 Development & Extension
+### Test Structure
 
-### Adding New Language Support
+```
+tests/
+├── unit/              # Unit tests for individual components
+├── integration/       # Integration tests for service interactions
+├── fixtures/          # Test data and mock projects
+└── utils/            # Test utilities and helpers
+```
 
-1. **Add Parser**: Implement language-specific parsing in `CodeRelationAnalyzer.ts`
-2. **Add Framework Detection**: Update `APIContractAnalyzer.ts` with framework patterns
-3. **Add Business Logic**: Update `BusinessLogicAnalyzer.ts` with domain patterns
-4. **Test**: Validate with real projects in that language
+## 📊 Performance
 
-### Adding New Framework Support
+### Benchmarks
 
-1. **Route Patterns**: Add regex patterns for framework's routing syntax
-2. **Component Patterns**: Add framework-specific component detection
-3. **Middleware Detection**: Add framework's middleware patterns
-4. **Integration Test**: Test with actual framework projects
+- **Small Projects** (< 100 files): < 2 seconds
+- **Medium Projects** (100-1000 files): < 10 seconds
+- **Large Projects** (1000+ files): < 30 seconds
+- **Memory Usage**: ~50MB base + ~1MB per 100 files analyzed
+- **Cache Hit Rate**: 85-95% for repeated operations
+
+### Optimization Features
+
+- **Batched Processing**: Files processed in configurable batches
+- **Intelligent Caching**: LRU cache with TTL and size limits
+- **Memory Management**: Automatic cleanup and garbage collection
+- **Lazy Loading**: On-demand analysis and loading
+- **Performance Monitoring**: Built-in metrics and logging
+
+## 🔒 Security
+
+### Security Features
+
+- **Input Validation**: Zod schemas for all inputs
+- **Path Traversal Protection**: Prevents directory escapes
+- **File Size Limits**: Configurable maximum file sizes
+- **Regex DoS Protection**: Validates search patterns
+- **Error Sanitization**: Prevents information leakage
+- **Backup System**: Automatic file backups before changes
+
+### Best Practices
+
+- All file operations are sandboxed within project boundaries
+- Comprehensive error handling prevents crashes
+- Structured logging for security monitoring
+- Input sanitization and validation at all entry points
+
+## 🐛 Troubleshooting
+
+### Common Issues
+
+**Project Analysis Fails**
+
+```bash
+# Check file permissions
+ls -la /path/to/project
+
+# Verify path exists and is readable
+analyze_project { "projectPath": "/absolute/path/to/project" }
+```
+
+**Memory Issues with Large Projects**
+
+```bash
+# Increase cache cleanup frequency
+export CACHE_CLEANUP_INTERVAL=60000
+
+# Reduce cache size
+export MAX_CACHE_SIZE=500
+```
+
+**Performance Issues**
+
+```bash
+# Enable debug logging
+export LOG_LEVEL=debug
+
+# Monitor performance
+get_project_stats { "projectPath": "/path/to/project" }
+```
+
+### Debug Mode
+
+```bash
+# Enable verbose logging
+LOG_LEVEL=debug context-engine-mcp
+
+# Check cache statistics
+clear_cache
+```
 
 ## 🤝 Contributing
 
-Contributions welcome! Focus areas:
+### Development Workflow
 
-- **New Language Support**: Add parsers for additional languages
-- **Framework Integration**: Support for new web frameworks
-- **Business Logic Patterns**: Enhanced domain detection
-- **Performance Optimization**: Faster parsing and analysis
-- **Test Coverage**: Real-world project validation
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/amazing-feature`
+3. Make changes and add tests
+4. Run tests: `npm test`
+5. Run linting: `npm run lint`
+6. Commit changes: `git commit -m 'Add amazing feature'`
+7. Push to branch: `git push origin feature/amazing-feature`
+8. Create Pull Request
+
+### Code Standards
+
+- **TypeScript**: Strict mode enabled with comprehensive types
+- **ESLint**: Enforced code quality and consistency
+- **Prettier**: Automatic code formatting
+- **Testing**: Unit and integration tests for all features
+- **Documentation**: Comprehensive inline and API documentation
+
+## 📝 Changelog
+
+### Version 2.0.0 (Current)
+
+- **Complete TypeScript rewrite** for production readiness
+- **Modular architecture** with separated concerns
+- **Enhanced security** with comprehensive validation
+- **Improved performance** with intelligent caching
+- **Advanced error handling** with structured logging
+- **Multi-file editing** with atomic operations
+- **Comprehensive testing** suite and coverage
+
+### Version 1.0.0 (Legacy)
+
+- Initial JavaScript implementation
+- Basic project analysis
+- Simple file operations
+- Limited error handling
 
 ## 📄 License
 
-[MIT](./LICENSE)
+MIT License - see [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- Built with [Model Context Protocol (MCP)](https://modelcontextprotocol.io/)
+- Powered by [TypeScript](https://www.typescriptlang.org/)
+- Uses [Zod](https://zod.dev/) for runtime validation
+- Logging via [Winston](https://github.com/winstonjs/winston)
+
+## 📞 Support
+
+- **Issues**: [GitHub Issues](https://github.com/raheesahmed/context-engine-mcp/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/raheesahmed/context-engine-mcp/discussions)
+- **Email**: raheesahmed256@gmail.com
 
 ---
 
-## 🔍 Real-World Use Cases
-
-- **AI Code Assistants**: Provide comprehensive project context to LLMs
-- **Architecture Analysis**: Understand project structure and patterns
-- **Code Migration**: Map dependencies for refactoring projects
-- **Documentation Generation**: Auto-generate project documentation
-- **Onboarding**: Help new developers understand large codebases
-- **Code Review**: Identify architectural patterns and potential issues
-
-**Ready to analyze any real codebase with production-grade intelligence!** 🚀
-
-Try it now: `node mcp-client.js demo`
+**Context Engine MCP Server v2.0** - Intelligent project analysis and code manipulation for the AI era.
