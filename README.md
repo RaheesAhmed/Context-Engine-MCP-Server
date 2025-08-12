@@ -33,14 +33,6 @@ A production-ready TypeScript MCP server providing comprehensive project analysi
 }
 ```
 
-**Why this approach?**
-
-- ✅ **Zero maintenance** - No global packages to manage
-- ✅ **Always latest** - Automatically uses the most recent version
-- ✅ **Proven reliable** - Extensively tested and verified working
-- ✅ **MCP standard** - Same pattern used by official MCP servers
-- ✅ **Cross-platform** - Works identically on Windows, Mac, and Linux
-
 ### Alternative: Global Installation
 
 1. **Install globally:**
