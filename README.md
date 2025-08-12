@@ -34,7 +34,7 @@ A **production-ready TypeScript MCP server** that provides comprehensive project
 ### From NPM (Recommended)
 
 ```bash
-npm install -g context-engine-mcp-server
+npm install -g context-engine-mcp
 ```
 
 ### From Source
