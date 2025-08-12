@@ -319,37 +319,6 @@ src/
 - **Strategy Pattern**: Language-specific analysis strategies
 - **Command Pattern**: File operation coordination
 
-## 🧪 Testing
-
-### Run Tests
-
-```bash
-# Run all tests
-npm test
-
-# Run tests in watch mode
-npm run test:watch
-
-# Generate coverage report
-npm run test:coverage
-
-# Run linting
-npm run lint
-
-# Format code
-npm run format
-```
-
-### Test Structure
-
-```
-tests/
-├── unit/              # Unit tests for individual components
-├── integration/       # Integration tests for service interactions
-├── fixtures/          # Test data and mock projects
-└── utils/            # Test utilities and helpers
-```
-
 ## 📊 Performance
 
 ### Benchmarks
