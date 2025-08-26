@@ -4,8 +4,6 @@ A production-ready TypeScript MCP server providing comprehensive project analysi
 
 ## ✅ Fully Tested & Verified
 
-**Zero Installation Required** - Proven to work perfectly with `npx -y` approach following MCP best practices.
-
 ## Features
 
 - 🔍 **Comprehensive Project Analysis** - Deep analysis of project structure, dependencies, and codebase
